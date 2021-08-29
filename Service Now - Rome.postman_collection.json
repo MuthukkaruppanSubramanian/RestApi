@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "bc68e618-d85b-41d0-a937-563c374195d0",
+		"name": "Service Now - Rome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Change Request",
+			"item": [
+				{
+					"name": "GET Records for State New and Type Emergency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request?type=emergency&state=-5",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "CHG0040007",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "emergency"
+								},
+								{
+									"key": "state",
+									"value": "-5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET XML response",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request?sysparm_fields=number,sys_id,type",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "number,sys_id,type"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST A New CR without Mandatory Fields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE A Chagne Request with Sys Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request/1bc1fd01db1e3010de5c9db2ca961902",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"1bc1fd01db1e3010de5c9db2ca961902"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST A New CR without Mandatory Fields Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<request>\r\n    <entry>\r\n        <priority>4</priority>\r\n        <short_description>This is created by Muthu</short_description>\r\n    </entry>\r\n</request>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Chagne Request with New Short Description",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"short_description\" : \"Updated by Muthu using PUT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev60052.service-now.com/api/now/table/change_request/c7223941dbd63010de5c9db2ca961973",
+							"protocol": "https",
+							"host": [
+								"dev60052",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"c7223941dbd63010de5c9db2ca961973"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "mE6BCviV5Eso",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
